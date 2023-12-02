@@ -1,2 +1,5 @@
 # Gmail-Sender-Count
-Just a little script I made that when run through the Apps Scripts will list senders in my Gmail inbox from highest to lowest. 
+
+This is a simple script that when run will generate a log of senders by how many emails are in the Gmail Inbox based on the senders' email. 
+
+You'll run this script directly from https://script.google.com/home.
