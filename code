@@ -1,0 +1,23 @@
+function countEmailsPerSender() {
+  var threads = GmailApp.getInboxThreads();
+  var sendersCount = {};
+
+  for (var i = 0; i < threads.length; i++) {
+    var messages = threads[i].getMessages();
+    for (var j = 0; j < messages.length; j++) {
+      var message = messages[j];
+      var from = message.getFrom();
+      sendersCount[from] = (sendersCount[from] || 0) + 1;
+    }
+  }
+
+  // Create an array of [sender, count] pairs and sort it by count in descending order
+  var sortedSenders = Object.entries(sendersCount).sort(function(a, b) {
+    return b[1] - a[1];
+  });
+
+  // Log the sorted senders
+  for (var i = 0; i < sortedSenders.length; i++) {
+    Logger.log(sortedSenders[i][0] + ': ' + sortedSenders[i][1]);
+  }
+}
